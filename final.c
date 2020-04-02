@@ -53,13 +53,10 @@ void display(struct student list[80], int s)
     int i,AvgWaitingTime=0,AvgTurnAroundTime=0;
 	int TotalWatingTime=0,TotalTurnAroundTime=0;
     printf("\n\n\t\t\tOutput according to LRTF\n");
-    printf("\n\t\t\t|===============================================================|");
-    printf("\n\t\t\t|Student id\tFoodTakenTime\tWaitingTime\tTurnAroundTime  |");
-    printf("\n\t\t\t|===============================================================|");    
+    printf("\n\t\t\t|Student id\tFoodTakenTime\tWaitingTime\tTurnAroundTime  |");  
     for (i = 0; i < s; i++)
     {
-        printf("\n\t\t\t|%d\t\t%d\t\t%d\t\t%d\t\t|", list[i].StudentId, list[i].FoodTakenTime,list[i].WaitingTime,list[i].TurnAroundTime);
-        printf("\a\n\t\t\t|---------------------------------------------------------------|");
+        printf("\n\t\t\t|%d\t\t%d\t\t%d\t\t%d\t\t|", list[i].StudentId, list[i].FoodTakenTime,list[i].WaitingTime,list[i].TurnAroundTime
 		TotalWatingTime= TotalWatingTime+list[i].WaitingTime;
 		TotalTurnAroundTime= TotalTurnAroundTime+list[i].TurnAroundTime;
 	} 
