@@ -68,4 +68,52 @@ void display(struct student list[80], int s)
 	printf("\n\n\t\t\tAverage Waiting Time is: = %d",TotalWatingTime/s);
 	printf("\n\t\t\tAverage Turn around Time is: = %d\n\n",TotalTurnAroundTime/s);
 }
+void scheduling(struct student list[80], int s)
+{
+    int i, j;
+    struct student temp;
+    
+    for (i = 0; i < s - 1; i++)
+    {
+        for (j = 0; j < (s - 1-i); j++)
+        {
+            if (list[j].FoodTakenTime < list[j + 1].FoodTakenTime)
+            {
+                temp = list[j];
+                list[j] = list[j + 1];
+                list[j + 1] = temp;
+            } 
+            else if(list[j].FoodTakenTime == list[j + 1].FoodTakenTime)
+            {
+            	if(list[j].StudentId > list[j + 1].StudentId)
+            	{
+            	temp = list[j];
+                list[j] = list[j + 1];
+                list[j + 1] = temp;
+                }
+			}
+        }
+    }
+}
 
+
+void waitingTime(struct student list[80], int n)
+{
+	int j,total;
+    list[0].WaitingTime=0;
+    for(j=1;j<n;j++)
+    {
+        list[j].WaitingTime=list[j-1].WaitingTime+list[j-1].FoodTakenTime;
+    }
+}
+
+
+void turnAroundTime(struct student list[80], int n)
+{
+	int j,total;
+    
+    for(j=0;j<n;j++)
+    {
+        list[j].TurnAroundTime=list[j].WaitingTime+list[j].FoodTakenTime;
+    }
+}
